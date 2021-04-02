@@ -28,8 +28,9 @@
 }
 
 @media (max-width: 1200px) {
-  .innner {
-    max-width: calc(60% + 15rem);
+  .inner {
+    max-width: 100%;
+    margin: 3rem;
   }
 }
 

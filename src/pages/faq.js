@@ -1,5 +1,13 @@
+import FAQ from "../components/faq";
+import ThankYou from "../components/thankyou";
+
 const FAQPage = () => {
-  return <div>FAQ</div>;
+  return (
+    <>
+      <FAQ />
+      <ThankYou />
+    </>
+  );
 };
 
 export default FAQPage;

@@ -20,3 +20,16 @@
   width: 100%;
   max-width: calc(65% + 6rem + 0.4725px);
 }
+
+@media (max-width: 950px) {
+  .inner {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .inner {
+    max-width: 100%;
+    margin: 0rem;
+  }
+}

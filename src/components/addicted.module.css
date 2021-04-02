@@ -18,6 +18,11 @@
   max-width: 37rem;
 }
 
+@media (max-width: 720px) {
+  .content {
+    padding: 2.625rem 1.5rem;
+  }
+}
 .header {
   color: #1d4d69;
   font-family: "Quicksand", sans-serif;

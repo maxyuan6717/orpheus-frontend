@@ -23,10 +23,10 @@ const Description = () => {
           </div>
         </Row>
         <Row className="mx-auto justify-content-center">
-          <div className="mr-3">
+          <div className="mx-2 my-2">
             <Button text="about" type="router" to="/about" />
           </div>
-          <div>
+          <div className="mx-2 my-2">
             <Button text="faq" type="router" to="/faq" />
           </div>
         </Row>

@@ -9,10 +9,14 @@ const Home = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <Row className={`mx-auto justify-content-center ${styles.header}`}>
-          <span>are you tethered to your device?</span>
+          <span style={{ textAlign: "center" }}>
+            are you tethered to your device?
+          </span>
         </Row>
         <Row className={`mx-auto justify-content-center ${styles.header}`}>
-          <span>welcome to 21 days disconnected</span>
+          <span style={{ textAlign: "center" }}>
+            welcome to 21 days disconnected
+          </span>
         </Row>
         <img src={Logo} width="100%" className={styles.logo} />
         <Row className={`${styles.divider_container} mx-auto`}>

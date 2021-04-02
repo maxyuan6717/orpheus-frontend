@@ -48,3 +48,12 @@
   color: rgba(242, 255, 254, 0.969);
   margin-bottom: 2rem;
 }
+
+@media (max-width: 720px) {
+  .content {
+    padding: 2.625rem 1.5rem;
+  }
+  .divider_container {
+    margin: 1.5rem 0;
+  }
+}

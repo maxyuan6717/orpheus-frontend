@@ -18,7 +18,19 @@
   overflow: hidden;
   margin: 4.5rem;
   width: 100%;
-  max-width: calc(65% + 6rem + 0.4725px);
+  max-width: 1385px;
+}
+
+@media (max-width: 1680px) {
+  .inner {
+    max-width: 1040px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .innner {
+    max-width: calc(60% + 15rem);
+  }
 }
 
 @media (max-width: 950px) {

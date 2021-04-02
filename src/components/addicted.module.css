@@ -1,0 +1,38 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-image: linear-gradient(
+      to top,
+      rgba(176, 217, 209, 0.91),
+      rgba(176, 217, 209, 0.91)
+    ),
+    url("../assets/addicted_bg.jpeg");
+  background-position: 0% 0%, center;
+  background-repeat: repeat, repeat;
+  background-size: auto, cover;
+}
+
+.content {
+  padding: 5.125rem 3rem;
+  max-width: 37rem;
+}
+
+.header {
+  color: #1d4d69;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: -0.05rem;
+  width: 100%;
+  font-size: 2.75em;
+  line-height: 1.25;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.list {
+  font-weight: 400;
+  letter-spacing: -0.05rem;
+  font-size: 1.125em;
+  line-height: 2.25;
+}

@@ -1,6 +1,7 @@
 body {
   margin: 0;
   font-family: "Spectral", serif !important;
+  font-weight: 300 !important;
   background-color: #000000 !important;
   line-height: 1.75 !important;
 }

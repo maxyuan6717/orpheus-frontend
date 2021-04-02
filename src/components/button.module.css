@@ -1,0 +1,19 @@
+.container {
+  background-color: #d8ffd6;
+  color: #196e73;
+  display: flex;
+  width: 14.125rem;
+  height: 4.375rem;
+  text-transform: uppercase;
+  font-size: 1.25em;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: 0.15rem;
+  font-weight: 700;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+
+.container:hover {
+  background-color: #8fff86;
+  cursor: pointer;
+}

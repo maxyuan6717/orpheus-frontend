@@ -54,7 +54,11 @@ const Home = () => {
           </div>
         </div>
         <Row className="mx-auto justify-content-center">
-          <Button text="Print PDF" type="link" href="https://google.com" />
+          <Button
+            text="Print PDF"
+            type="link"
+            href="https://drive.google.com/file/d/1yWb8L8Kdaw65xLjSKMBV39XzdJF7SR-d/view?usp=sharing"
+          />
         </Row>
       </div>
     </div>

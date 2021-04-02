@@ -18,7 +18,12 @@ const Home = () => {
             welcome to 21 days disconnected
           </span>
         </Row>
-        <img src={Logo} width="100%" className={styles.logo} />
+        <img
+          src={Logo}
+          alt="Orpheus Logo"
+          width="100%"
+          className={styles.logo}
+        />
         <Row className={`${styles.divider_container} mx-auto`}>
           <div className={styles.divider} />
         </Row>

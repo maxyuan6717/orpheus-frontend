@@ -36,7 +36,7 @@ const About = () => {
           </div>
         </div>
         <Row className={`mx-auto justify-content-center ${styles.btn_row}`}>
-          <a className={styles.btn}>
+          <a href="https://google.com" className={styles.btn}>
             <div className="m-auto">Resources</div>
           </a>
         </Row>

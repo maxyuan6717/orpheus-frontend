@@ -1,0 +1,67 @@
+.container {
+  background-image: linear-gradient(
+      152deg,
+      rgba(27, 25, 38, 0.502) 0%,
+      rgba(62, 97, 140, 0.502) 0%
+    ),
+    url("../assets/thankyou_bg.jpeg");
+  background-position: 0% 0%, center;
+  background-repeat: repeat, repeat;
+  background-size: cover, cover;
+  background-attachment: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  padding: 7.5rem 6rem;
+  max-width: 56rem;
+}
+
+.header {
+  color: #1d4d69;
+  font-family: "Quicksand", sans-serif;
+  letter-spacing: -0.05rem;
+  width: 100%;
+  font-size: 2.75em;
+  line-height: 1.25;
+  font-weight: 400;
+  text-align: center;
+}
+
+.body {
+  color: #662c2c;
+  letter-spacing: 0.05rem;
+  width: calc(100% + 0.05rem);
+  font-size: 1em;
+  line-height: 1.875;
+  margin: 1.75rem 0;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: -0.025rem;
+  width: 100%;
+  font-size: 1em;
+  line-height: 1.75;
+  text-align: center;
+}
+
+.btn_row {
+  margin: 2.5rem 0;
+}
+
+.btn_container {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+  border: 1px solid #ffffff;
+  color: #adeda8;
+  transition: color 0.3s;
+}
+
+.btn_container:hover {
+  cursor: pointer;
+  color: white;
+}

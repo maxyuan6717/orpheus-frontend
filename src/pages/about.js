@@ -7,10 +7,10 @@ const AboutPage = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <>
+    <div className="fade-in">
       <About />
       <ThankYou />
-    </>
+    </div>
   );
 };
 

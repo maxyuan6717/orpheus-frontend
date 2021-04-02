@@ -31,15 +31,16 @@ const About = () => {
           <div>
             The material is based on a wealth of research, clinical experience,
             and philosophy. A number of individuals, books, and films have
-            inspired us. For people interested in these origins, you can
-            download a partial list of them here.
+            inspired us.
+            {/* For people interested in these origins, you can
+            download a partial list of them here. */}
           </div>
         </div>
-        <Row className={`mx-auto justify-content-center ${styles.btn_row}`}>
+        {/* <Row className={`mx-auto justify-content-center ${styles.btn_row}`}>
           <a href="https://google.com" className={styles.btn}>
             <div className="m-auto">Resources</div>
           </a>
-        </Row>
+        </Row> */}
         <Row className={`mx-auto justify-content-center`}>
           <BackBtn />
         </Row>

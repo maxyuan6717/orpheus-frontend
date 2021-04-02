@@ -1,0 +1,27 @@
+.container {
+  background-image: linear-gradient(
+      to top,
+      rgba(230, 216, 216, 0.49),
+      rgba(230, 216, 216, 0.49)
+    ),
+    url("../assets/about_bg.jpeg");
+  background-position: 0% 0%, bottom left;
+  background-repeat: repeat, repeat;
+  background-size: auto, cover;
+  background-attachment: fixed;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  max-width: 100%;
+  padding: 4.25rem 3rem;
+}
+
+.text {
+  color: #662c2c;
+  font-size: 1em;
+  line-height: 1.875;
+  margin-bottom: 2.625rem;
+}

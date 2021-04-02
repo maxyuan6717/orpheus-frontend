@@ -1,20 +1,16 @@
-import styles from "./landing.module.css";
-
 import Home from "../components/home";
 import Addicted from "../components/addicted";
-import About from "../components/about";
+import Description from "../components/description";
 import ThankYou from "../components/thankyou";
 
 const Landing = () => {
   return (
-    <div className={styles.container}>
-      <div className={styles.inner}>
-        <Home />
-        <Addicted />
-        <About />
-        <ThankYou />
-      </div>
-    </div>
+    <>
+      <Home />
+      <Addicted />
+      <Description />
+      <ThankYou />
+    </>
   );
 };
 

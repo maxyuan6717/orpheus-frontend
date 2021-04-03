@@ -49,6 +49,12 @@
   margin-bottom: 2rem;
 }
 
+.message {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  text-align: center;
+}
+
 @media (max-width: 720px) {
   .content {
     padding: 2.625rem 1.5rem;

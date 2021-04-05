@@ -101,6 +101,7 @@ const Home = () => {
                 setEmail(e.target.value);
               }}
               onKeyDown={handleKeyDown}
+              placeholder="What's your email?"
             />
           </div>
           <div className="mx-2 mb-2">

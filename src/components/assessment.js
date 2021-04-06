@@ -127,6 +127,18 @@ const Assessment = () => {
         </Col>
         <Col md={2} />
       </Row>
+      <Spacer />
+      <div className="header">Your Approach</div>
+      <div className="subheader">What Strategy is Best for You</div>
+      <Spacer />
+      <Row className="mx-auto">
+        <Col md={4} className="p-0">
+          What does a healthy relationship with technology look like for you?
+        </Col>
+        <Col md={8}>
+          <textarea style={{ width: "100%", height: "100%" }} />
+        </Col>
+      </Row>
     </div>
   );
 };

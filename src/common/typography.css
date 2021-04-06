@@ -1,0 +1,14 @@
+.header {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  font-size: 40px;
+  letter-spacing: 0.05rem;
+  line-height: 45px;
+}
+
+.subheader {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  letter-spacing: 0.05rem;
+}

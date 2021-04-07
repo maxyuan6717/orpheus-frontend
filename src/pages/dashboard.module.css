@@ -6,6 +6,15 @@
 }
 
 .content {
-  max-width: 100%;
+  width: 100%;
   padding: 4.25rem 3rem;
+}
+
+.entry_link {
+  color: #3ba534;
+}
+
+.entry_link:hover {
+  text-decoration: none;
+  color: #2b8024;
 }

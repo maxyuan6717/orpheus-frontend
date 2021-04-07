@@ -25,7 +25,9 @@ const Dashboard = () => {
     for (let i = 1; i <= 21; i++) {
       temp[i - 1] = res[i].hours ? parseInt(res[i].hours) : 0;
     }
-    setScreentime(temp);
+
+    if (JSON.stringify(temp) !== JSON.stringify(screentime))
+      setScreentime(temp);
   }, [info, screentime]);
 
   return (

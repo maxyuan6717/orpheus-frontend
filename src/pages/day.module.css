@@ -20,3 +20,8 @@
   cursor: pointer;
   color: rgb(200, 200, 200);
 }
+
+.back_btn {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+}

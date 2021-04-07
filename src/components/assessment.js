@@ -127,7 +127,7 @@ const Assessment = ({ info }) => {
         <Col md={6} className="pl-0">
           {dev_questions.map((question, index) => (
             <Row className="mx-auto" key={index}>
-              <Col xs={4} className="px-1 py-1">
+              <Col xs={4} className="px-1 py-1 text-right">
                 {question}
               </Col>
               {[0, 1].map((indx) => (

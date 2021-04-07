@@ -12,6 +12,7 @@ import Spacer from "../components/spacer";
 const DayPage = () => {
   let { id, day_no } = useParams();
   day_no = parseInt(day_no);
+
   const [info, setInfo] = useState({});
   useEffect(() => {
     const fetchUser = async () => {
@@ -20,19 +21,32 @@ const DayPage = () => {
         setInfo(userInfo.data.fetchedUser);
     };
     fetchUser();
-  }, [id]);
+  }, [id, day_no]);
 
   return (
     <div className={styles.container}>
       <div className={styles.content}>
         {Object.keys(info).length > 0 ? (
           <>
+            <Row className="mx-auto justify-content-center">
+              <Link to={`/${id}`} className={styles.back_btn}>
+                Back to dashboard
+              </Link>
+            </Row>
             <Row className="mx-auto">
-              <Link className="my-auto mr-2" to={`/${id}/${day_no - 1}`}>
+              <Link
+                className="my-auto mr-2"
+                to={`/${id}/${day_no - 1}`}
+                style={{ pointerEvents: day_no > 0 ? null : "none" }}
+              >
                 <FaChevronLeft size={25} className={styles.arrow} />
               </Link>
               <span className="header">Day {day_no}</span>
-              <Link className="my-auto ml-2" to={`/${id}/${day_no + 1}`}>
+              <Link
+                className="my-auto ml-2"
+                to={`/${id}/${day_no + 1}`}
+                style={{ pointerEvents: day_no < 21 ? null : "none" }}
+              >
                 <FaChevronRight size={25} className={styles.arrow} />
               </Link>
             </Row>

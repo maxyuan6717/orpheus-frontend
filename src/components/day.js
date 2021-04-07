@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./day.module.css";
 import { program } from "../util/ProgramText";
 import Spacer from "./spacer";
@@ -13,6 +13,17 @@ const Day = ({ info, day_no }) => {
   const [responses, setResponses] = useState(
     res["ans"] ? res["ans"] : new Array(N).fill("")
   );
+
+  useEffect(() => {
+    const temp_questions = program[day_no - 1].questions;
+    const temp_N = temp_questions.length;
+    const temp_res = info.responses[day_no];
+    if (temp_res["ans"]) {
+      setResponses(temp_res["ans"]);
+    } else {
+      setResponses(new Array(temp_N).fill(""));
+    }
+  }, [day_no, info]);
 
   const [saved, setSaved] = useState(0);
   const saveResponses = async () => {
@@ -55,7 +66,7 @@ const Day = ({ info, day_no }) => {
       <Spacer />
       <Row className="mx-auto justify-content-center">
         <Button onClick={saveResponses} text="save" type="link" />
-        <span>
+        <span className="my-auto">
           {saved === -1 ? "Saving..." : saved === 1 ? "Saved :)" : ""}
         </span>
       </Row>

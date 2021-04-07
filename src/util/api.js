@@ -11,4 +11,12 @@ const getUser = async (id) => {
   return user;
 };
 
-export { addUser, getUser };
+const saveUser = async (id, responses) => {
+  let saved = await axios.post(`${Base}/user/save`, {
+    userId: id,
+    responses: responses,
+  });
+  return saved;
+};
+
+export { addUser, getUser, saveUser };

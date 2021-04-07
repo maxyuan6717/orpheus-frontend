@@ -13,6 +13,7 @@ const Day = ({ info, day_no }) => {
   const [responses, setResponses] = useState(
     res["ans"] ? res["ans"] : new Array(N).fill("")
   );
+  const [hours, setHours] = useState(res["hours"] ? res["hours"] : "");
 
   useEffect(() => {
     const temp_questions = program[day_no - 1].questions;
@@ -23,6 +24,11 @@ const Day = ({ info, day_no }) => {
     } else {
       setResponses(new Array(temp_N).fill(""));
     }
+    if (temp_res["hours"]) {
+      setHours(temp_res["hours"]);
+    } else {
+      setHours("");
+    }
   }, [day_no, info]);
 
   const [saved, setSaved] = useState(0);
@@ -30,6 +36,7 @@ const Day = ({ info, day_no }) => {
     const temp = [...info.responses];
     temp[day_no] = {
       ans: responses,
+      hours: hours,
     };
     setSaved(-1);
     await saveUser(info._id, temp);
@@ -63,6 +70,18 @@ const Day = ({ info, day_no }) => {
           />
         </>
       ))}
+      <div>{`${
+        responses.length + 1
+      }. How many hours did you spend on your screen today?`}</div>
+      <input
+        value={hours}
+        onChange={(e) => {
+          const re = /^[0-9\b]+$/;
+          if (e.target.value === "" || re.test(e.target.value)) {
+            setHours(e.target.value);
+          }
+        }}
+      />
       <Spacer />
       <Row className="mx-auto justify-content-center">
         <Button onClick={saveResponses} text="save" type="link" />

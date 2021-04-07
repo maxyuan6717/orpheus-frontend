@@ -2,7 +2,7 @@ import styles from "./App.module.css";
 import Landing from "./pages/landing";
 import AboutPage from "./pages/about";
 import FAQPage from "./pages/faq";
-import Welcome from "./pages/welcome";
+import Dashboard from "./pages/dashboard";
 import DayPage from "./pages/day";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
@@ -19,7 +19,7 @@ function App() {
             <Switch>
               <Route exact path="/about" component={AboutPage} />
               <Route exact path="/faq" component={FAQPage} />
-              <Route exact path="/:id" component={Welcome} />
+              <Route exact path="/:id" component={Dashboard} />
               <Route exact path="/:id/:day_no" component={DayPage} />
               <Route path="/" component={Landing} />
             </Switch>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getUser } from "../util/api";
-import styles from "./welcome.module.css";
-const Welcome = () => {
+import styles from "./dashboard.module.css";
+const Dashboard = () => {
   const { id } = useParams();
   const [info, setInfo] = useState({});
   useEffect(() => {
@@ -24,4 +24,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default Dashboard;

@@ -30,7 +30,6 @@ const Day = ({ info, day_no }) => {
 
   return (
     <div>
-      <div className="header">Day {day_no}</div>
       <Spacer />
       <div className="text1 bold">
         Daily story: {program[day_no - 1].story_title}

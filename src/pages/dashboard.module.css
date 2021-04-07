@@ -18,3 +18,7 @@
   text-decoration: none;
   color: #2b8024;
 }
+
+.graph_container {
+  height: 50vh;
+}

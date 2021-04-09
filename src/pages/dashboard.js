@@ -23,7 +23,7 @@ const Dashboard = () => {
     const res = info.responses;
     let temp = [...screentime];
     for (let i = 1; i <= 21; i++) {
-      temp[i - 1] = res[i].hours ? parseInt(res[i].hours) : 0;
+      temp[i - 1] = res[i].minutes ? parseInt(res[i].minutes) : 0;
     }
 
     if (JSON.stringify(temp) !== JSON.stringify(screentime))
@@ -72,7 +72,7 @@ const Dashboard = () => {
               tickSize: 5,
               tickPadding: 5,
               tickRotation: 0,
-              legend: "Hours",
+              legend: "Minutes",
               legendOffset: -40,
               legendPosition: "middle",
             }}

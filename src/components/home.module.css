@@ -41,7 +41,7 @@
   width: 46%;
   height: 2px;
   margin: auto;
-  background-color: #8fff86;
+  background-color: var(--primary);
 }
 
 .text {

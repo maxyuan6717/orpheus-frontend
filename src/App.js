@@ -9,9 +9,33 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { slide as Menu } from "react-burger-menu";
 import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+import { BsList } from "react-icons/bs";
 import "./common/burger.css";
-
 import "./common/typography.css";
+// import { ReactComponent as burger_icon } from "./assets/burger.svg";
+import burger_icon from "./assets/burger.svg";
+
+const StyledNavLink = styled(NavLink)`
+  color: var(--primary);
+  font-family: "Quicksand", sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  padding: 5px 0px 5px 20px;
+  transition: background-color 0.3s;
+
+  &:hover {
+    color: var(--primary);
+    text-decoration: none;
+    background-color: rgb(75, 75, 75);
+  }
+
+  &:active,
+  &:focus {
+    outline: none;
+    border: none;
+  }
+`;
 
 function App() {
   const MyRoute = ({ children, ...otherProps }) => {
@@ -27,10 +51,14 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Menu>
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/about">About</NavLink>
-          <NavLink to="/faq">FAQ</NavLink>
+        <Menu
+          disableAutoFocus
+          itemListElement="div"
+          customBurgerIcon={<img src={burger_icon} />}
+        >
+          <StyledNavLink to="/">Home</StyledNavLink>
+          <StyledNavLink to="/about">Our Story</StyledNavLink>
+          <StyledNavLink to="/">Dashboard</StyledNavLink>
         </Menu>
         <Switch>
           <MyRoute exact path="/about">

@@ -4,6 +4,9 @@ import AboutPage from "./pages/about";
 import FAQPage from "./pages/faq";
 import Dashboard from "./pages/dashboard";
 import DayPage from "./pages/day";
+import Register from "./pages/register";
+import Login from "./pages/login";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
@@ -66,6 +69,12 @@ function App() {
           </MyRoute>
           <MyRoute exact path="/faq">
             <FAQPage />
+          </MyRoute>
+          <MyRoute exact path="/register">
+            <Register />
+          </MyRoute>
+          <MyRoute exact path="/login">
+            <Login />
           </MyRoute>
           <MyRoute exact path="/:id">
             <Dashboard />

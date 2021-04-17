@@ -2,11 +2,13 @@ import { useState } from "react";
 import styles from "./login.module.css";
 import Button from "../components/button";
 import { loginUser } from "../util/api";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
+  const history = useHistory();
   const handleSubmit = async () => {
     if (email.length === 0 || password.length === 0) {
       setErr("Please fill in all fields");
@@ -14,8 +16,16 @@ const Login = () => {
         setErr("");
       }, 2000);
     } else {
-      let res = await loginUser(email, password);
-      console.log(res);
+      let res;
+      try {
+        res = await loginUser(email, password);
+        if (res.data && res.data.success) {
+          history.push(`/${res.data.userId}/`);
+        }
+        // console.log(res.data.success);
+      } catch (err) {
+        // console.log(err.response.data.err);
+      }
     }
   };
   return (
@@ -44,12 +54,7 @@ const Login = () => {
             }}
           />
         </div>
-        <Button
-          type="link"
-          height="3rem"
-          text="Create"
-          onClick={handleSubmit}
-        />
+        <Button type="link" height="3rem" text="Login" onClick={handleSubmit} />
         <div>{err.length > 0 && err}</div>
       </div>
     </div>

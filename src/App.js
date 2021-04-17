@@ -7,7 +7,13 @@ import DayPage from "./pages/day";
 import Register from "./pages/register";
 import Login from "./pages/login";
 
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { useEffect, useState } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  useParams,
+} from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import { slide as Menu } from "react-burger-menu";
@@ -41,6 +47,13 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 function App() {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const userId = localStorage.getItem("userId");
+    if (userId) setUser(userId);
+  });
+
   const MyRoute = ({ children, ...otherProps }) => {
     return (
       <Route {...otherProps}>
@@ -70,7 +83,7 @@ function App() {
           <MyRoute exact path="/faq">
             <FAQPage />
           </MyRoute>
-          <MyRoute exact path="/register">
+          <MyRoute exact path="/:id/register">
             <Register />
           </MyRoute>
           <MyRoute exact path="/login">

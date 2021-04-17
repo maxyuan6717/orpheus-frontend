@@ -19,4 +19,19 @@ const saveUser = async (id, responses) => {
   return saved;
 };
 
-export { addUser, getUser, saveUser };
+const registerUser = async (id, name, password1, password2) => {
+  let user = await axios.post(`${Base}/user/register`, {
+    userId: id,
+    name,
+    password1,
+    password2,
+  });
+  return user;
+};
+
+const loginUser = async (email, password) => {
+  let user = await axios.post(`${Base}/user/login`, { email, password });
+  return user;
+};
+
+export { addUser, getUser, saveUser, registerUser, loginUser };

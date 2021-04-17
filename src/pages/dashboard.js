@@ -10,6 +10,7 @@ const Dashboard = () => {
   const [info, setInfo] = useState({});
   const [screentime, setScreentime] = useState(new Array(21).fill(0));
   useEffect(() => {
+    localStorage.setItem("userId", id);
     const fetchUser = async () => {
       let userInfo = await getUser(id);
       if (userInfo.data && userInfo.data.fetchedUser)

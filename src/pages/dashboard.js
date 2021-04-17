@@ -4,6 +4,7 @@ import { getUser } from "../util/api";
 import styles from "./dashboard.module.css";
 import { Row } from "react-bootstrap";
 import { ResponsiveLine } from "@nivo/line";
+import Button from "../components/button";
 
 const Dashboard = () => {
   const { id } = useParams();
@@ -45,7 +46,19 @@ const Dashboard = () => {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <div className="header">Hello {info.email}</div>
+        <Row className="mx-auto justify-content-between">
+          <div className="header">
+            Hello {info.name ? info.name : info.email}
+          </div>
+          {!info.name && (
+            <Button
+              to={`/${id}/register`}
+              text="Create Account"
+              height="2.5rem"
+            />
+          )}
+        </Row>
+
         <div className="subheader">
           <Row className="mx-auto">
             <span className="my-auto">Welcome to day {info.day}/21</span>

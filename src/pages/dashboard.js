@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useHistory } from "react-router-dom";
 import { getUser } from "../util/api";
 import styles from "./dashboard.module.css";
 import { Row } from "react-bootstrap";
@@ -9,12 +9,20 @@ const Dashboard = () => {
   const { id } = useParams();
   const [info, setInfo] = useState({});
   const [screentime, setScreentime] = useState(new Array(21).fill(0));
+  const history = useHistory();
   useEffect(() => {
     localStorage.setItem("userId", id);
     const fetchUser = async () => {
-      let userInfo = await getUser(id);
-      if (userInfo.data && userInfo.data.fetchedUser)
-        setInfo(userInfo.data.fetchedUser);
+      try {
+        let userInfo = await getUser(id);
+        if (userInfo.data && userInfo.data.fetchedUser)
+          setInfo(userInfo.data.fetchedUser);
+        else {
+          history.push("/");
+        }
+      } catch (err) {
+        history.push("/");
+      }
     };
     fetchUser();
   }, [id]);

@@ -74,7 +74,9 @@ function App() {
         >
           <StyledNavLink to="/">Home</StyledNavLink>
           <StyledNavLink to="/about">Our Story</StyledNavLink>
-          <StyledNavLink to="/">Dashboard</StyledNavLink>
+          <StyledNavLink to={`/${user ? user : "login"}`}>
+            Dashboard
+          </StyledNavLink>
         </Menu>
         <Switch>
           <MyRoute exact path="/about">

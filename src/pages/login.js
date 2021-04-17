@@ -23,7 +23,11 @@ const Login = () => {
           history.push(`/${res.data.userId}/`);
         }
         // console.log(res.data.success);
-      } catch (err) {
+      } catch (error) {
+        setErr(error.response.data.err);
+        setTimeout(() => {
+          setErr("");
+        }, 2000);
         // console.log(err.response.data.err);
       }
     }

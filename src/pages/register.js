@@ -3,7 +3,7 @@ import styles from "./register.module.css";
 import styled from "styled-components";
 import Button from "../components/button";
 import { registerUser } from "../util/api";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 
 const Register = () => {
   const { id } = useParams();
@@ -11,7 +11,7 @@ const Register = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [err, setErr] = useState("");
-
+  const history = useHistory();
   const handleSubmit = async () => {
     if (name.length === 0 || password1.length === 0 || password2.length === 0) {
       setErr("Please fill in all fields");
@@ -29,7 +29,18 @@ const Register = () => {
         setErr("");
       }, 2000);
     } else {
-      let res = await registerUser(id, name, password1, password2);
+      let res;
+      try {
+        res = await registerUser(id, name, password1, password2);
+        if (res.data && res.data.success) {
+          history.push(`/${id}/`);
+        }
+      } catch (error) {
+        setErr(error.response.data.err);
+        setTimeout(() => {
+          setErr("");
+        }, 2000);
+      }
     }
   };
 

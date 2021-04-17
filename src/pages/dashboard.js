@@ -11,13 +11,16 @@ const Dashboard = () => {
   const [screentime, setScreentime] = useState(new Array(21).fill(0));
   const history = useHistory();
   useEffect(() => {
-    localStorage.setItem("userId", id);
     const fetchUser = async () => {
       try {
         let userInfo = await getUser(id);
-        if (userInfo.data && userInfo.data.fetchedUser)
+        if (userInfo.data && userInfo.data.fetchedUser) {
           setInfo(userInfo.data.fetchedUser);
-        else {
+          if (!localStorage.getItem("userId")) {
+            localStorage.setItem("userId", id);
+          }
+          // console.log(userInfo.data.fetchedUser);
+        } else {
           history.push("/");
         }
       } catch (err) {

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./day.module.css";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import Assessment from "../components/assessment";
 import Day from "../components/day";
 import { getUser } from "../util/api";
@@ -14,11 +14,23 @@ const DayPage = () => {
   day_no = parseInt(day_no);
 
   const [info, setInfo] = useState({});
+  const history = useHistory();
   useEffect(() => {
     const fetchUser = async () => {
-      let userInfo = await getUser(id);
-      if (userInfo.data && userInfo.data.fetchedUser)
-        setInfo(userInfo.data.fetchedUser);
+      try {
+        let userInfo = await getUser(id);
+        if (userInfo.data && userInfo.data.fetchedUser) {
+          setInfo(userInfo.data.fetchedUser);
+          if (!localStorage.getItem("userId")) {
+            localStorage.setItem("userId", id);
+          }
+          // console.log(userInfo.data.fetchedUser);
+        } else {
+          history.push("/");
+        }
+      } catch (err) {
+        history.push("/");
+      }
     };
     fetchUser();
   }, [id, day_no]);

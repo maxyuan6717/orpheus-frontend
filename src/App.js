@@ -7,45 +7,13 @@ import Dashboard from "./pages/dashboard";
 import DayPage from "./pages/day";
 import Register from "./pages/register";
 import Login from "./pages/login";
+import NavMenu from "./components/menu";
 
 import { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
-import { slide as Menu } from "react-burger-menu";
-import { NavLink } from "react-router-dom";
-import styled from "styled-components";
-import { BsList } from "react-icons/bs";
-import "./common/burger.css";
 import "./common/typography.css";
-// import { ReactComponent as burger_icon } from "./assets/burger.svg";
-import burger_icon from "./assets/burger.svg";
-
-const StyledNavLink = styled(NavLink)`
-  color: var(--primary);
-  font-family: "Quicksand", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  padding: 5px 0px 5px 20px;
-  transition: background-color 0.3s;
-
-  &:hover {
-    color: var(--primary);
-    text-decoration: none;
-    background-color: rgb(75, 75, 75);
-  }
-
-  &:active,
-  &:focus {
-    outline: none;
-    border: none;
-  }
-`;
 
 function App() {
   const [user, setUser] = useState();
@@ -53,7 +21,7 @@ function App() {
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     if (userId) setUser(userId);
-  });
+  }, []);
 
   const MyRoute = ({ children, ...otherProps }) => {
     return (
@@ -68,18 +36,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <Menu
-          disableAutoFocus
-          itemListElement="div"
-          customBurgerIcon={<img src={burger_icon} />}
-        >
-          <StyledNavLink to="/">Home</StyledNavLink>
-          <StyledNavLink to="/story">Our Story</StyledNavLink>
-          <StyledNavLink to="/team">Team</StyledNavLink>
-          <StyledNavLink to={`/${user ? user : "login"}`}>
-            Dashboard
-          </StyledNavLink>
-        </Menu>
+        <NavMenu user={user} />
         <Switch>
           <MyRoute exact path="/team">
             <TeamPage />

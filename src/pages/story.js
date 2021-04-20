@@ -1,17 +1,17 @@
 import { useEffect } from "react";
-import About from "../components/about";
+import Story from "../components/story";
 import ThankYou from "../components/thankyou";
 
-const AboutPage = () => {
+const StoryPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <div className="fade-in">
-      <About />
+      <Story />
       <ThankYou />
     </div>
   );
 };
 
-export default AboutPage;
+export default StoryPage;

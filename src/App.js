@@ -1,6 +1,7 @@
 import styles from "./App.module.css";
 import Landing from "./pages/landing";
-import AboutPage from "./pages/about";
+import TeamPage from "./pages/team";
+import StoryPage from "./pages/story";
 import FAQPage from "./pages/faq";
 import Dashboard from "./pages/dashboard";
 import DayPage from "./pages/day";
@@ -73,14 +74,18 @@ function App() {
           customBurgerIcon={<img src={burger_icon} />}
         >
           <StyledNavLink to="/">Home</StyledNavLink>
-          <StyledNavLink to="/about">Our Story</StyledNavLink>
+          <StyledNavLink to="/story">Our Story</StyledNavLink>
+          <StyledNavLink to="/team">Team</StyledNavLink>
           <StyledNavLink to={`/${user ? user : "login"}`}>
             Dashboard
           </StyledNavLink>
         </Menu>
         <Switch>
-          <MyRoute exact path="/about">
-            <AboutPage />
+          <MyRoute exact path="/team">
+            <TeamPage />
+          </MyRoute>
+          <MyRoute exact path="/story">
+            <StoryPage />
           </MyRoute>
           <MyRoute exact path="/faq">
             <FAQPage />

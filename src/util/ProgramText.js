@@ -228,7 +228,7 @@ export const program = [
       </div>
     ),
     questions: [
-      "Has a message you sent over social media ever been misinterpreted? Why wasthat?",
+      "Has a message you sent over social media ever been misinterpreted? Why was that?",
     ],
   },
   {
@@ -299,7 +299,6 @@ export const program = [
     ),
     questions: [
       "Do you think that the anger you see in others that may disagree with you— politically, socially, etc.—is different or similar to your own?",
-      "Discuss key insights with family members and friends!",
     ],
   },
   {

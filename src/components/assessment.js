@@ -39,11 +39,31 @@ const Assessment = ({ info }) => {
   );
   const [news, setNews] = useState(res["news"] ? res["news"] : "");
 
+  const [everyone, setEveryone] = useState(
+    res["everyone"] ? res["everyone"] : [false, false, false, false]
+  );
+  const [recommend, setRecommend] = useState(
+    res["recommend"] ? res["recommend"] : [false, false, false]
+  );
+
   const dev_questions = [
     "Cellular device",
     "Most used app",
     "2nd most used app",
     "Daily average of pickups",
+  ];
+
+  const everyone_check = [
+    "Complete introductory materials",
+    "Find a drawer, closet or space that's not easily accessible to store your phone when not in use",
+    "Announce your plans to be offline / have minimal technology usage to family, friends, and social media",
+    "Turn off all non-essential notifications",
+  ];
+
+  const recommend_check = [
+    "Identify a few family members and/or close friends to join you (helps with accountability!)",
+    'Provide alternative ways to stay in touch (designate "online hours")',
+    "Remove addictive apps (like Facebook, TikTok, Instagram)",
   ];
 
   const [saved, setSaved] = useState(0);
@@ -61,6 +81,8 @@ const Assessment = ({ info }) => {
       usageChange,
       tethered,
       news,
+      everyone,
+      recommend,
     };
     setSaved(-1);
     await saveUser(info._id, temp);
@@ -320,6 +342,61 @@ const Assessment = ({ info }) => {
             reading patterns
           </span>
         </div>
+      </Row>
+      <Spacer />
+      <div className="header">Prepare Yourself</div>
+      <div className="subheader">Get ready with the following checklists</div>
+      <Row className="mx-auto">
+        <Col md={6} className="pl-0">
+          <div className="text1 bold">Everyone</div>
+          {everyone_check.map((check, index) => (
+            <div>
+              <input
+                type="checkbox"
+                id={`everyone_${index}`}
+                name={`everyone_${index}`}
+                checked={everyone[index]}
+                onChange={() => {
+                  const temp = [...everyone];
+                  temp[index] = !temp[index];
+                  setEveryone(temp);
+                }}
+              />
+              <label
+                style={{ display: "inline" }}
+                for={`everyone_${index}`}
+                className="ml-2"
+              >
+                {check}
+              </label>
+            </div>
+          ))}
+        </Col>
+        <Col md={6} className="pl-0">
+          <div className="text1 bold">Recommendations</div>
+          {recommend_check.map((check, index) => (
+            <div>
+              <input
+                type="checkbox"
+                id={`recommend_${index}`}
+                name={`recommend_${index}`}
+                checked={recommend[index]}
+                onChange={() => {
+                  const temp = [...recommend];
+                  temp[index] = !temp[index];
+                  setRecommend(temp);
+                }}
+              />
+              <label
+                style={{ display: "inline" }}
+                for={`recommend_${index}`}
+                className="ml-2"
+              >
+                {check}
+              </label>
+            </div>
+          ))}
+        </Col>
       </Row>
       <Spacer />
       <Row className="mx-auto justify-content-center">

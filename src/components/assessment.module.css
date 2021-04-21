@@ -26,3 +26,18 @@
   background-color: rgba(68, 165, 255, 0.2) !important;
   border: 2px solid rgb(68, 165, 255);
 }
+
+.strategy {
+  cursor: pointer;
+  transition: background-color 0.3s;
+  border: 1px solid black;
+  margin: -1px 0 0 -1px;
+}
+
+.strategy:hover {
+  background-color: rgb(220, 220, 220);
+}
+
+.selected_strat {
+  background-color: rgba(68, 165, 255, 0.2) !important;
+}

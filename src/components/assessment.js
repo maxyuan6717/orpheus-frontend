@@ -45,6 +45,15 @@ const Assessment = ({ info }) => {
   const [recommend, setRecommend] = useState(
     res["recommend"] ? res["recommend"] : [false, false, false]
   );
+  const [strategy, setStrategy] = useState(
+    res["strategy"] ? res["strategy"] : null
+  );
+  const [filters, setFilters] = useState(
+    res["filters"] ? res["filters"] : ["", "", ""]
+  );
+  const [filter_news, setFilterNews] = useState(
+    res["filter_news"] ? res["filter_news"] : ""
+  );
 
   const dev_questions = [
     "Cellular device",
@@ -66,6 +75,12 @@ const Assessment = ({ info }) => {
     "Remove addictive apps (like Facebook, TikTok, Instagram)",
   ];
 
+  const filter_labels = [
+    "Allowed sites:",
+    "Allowed apps:",
+    "Allowed times to check:",
+  ];
+
   const [saved, setSaved] = useState(0);
 
   const saveResponses = async () => {
@@ -83,6 +98,9 @@ const Assessment = ({ info }) => {
       news,
       everyone,
       recommend,
+      strategy,
+      filters,
+      filter_news,
     };
     setSaved(-1);
     await saveUser(info._id, temp);
@@ -396,6 +414,97 @@ const Assessment = ({ info }) => {
               </label>
             </div>
           ))}
+        </Col>
+      </Row>
+      <Spacer />
+      <div className="text1 bold">Specific Strategy</div>
+      <div className="">Select and fill out one of the following.</div>
+      <Row className="mx-auto px-5">
+        <Col
+          className={`p-2 ${styles.strategy} ${
+            strategy === "A" ? styles.selected_strat : null
+          }`}
+          md={6}
+          onClick={() => {
+            setStrategy("A");
+          }}
+        >
+          <div className="text1 bold">A. Device Restriction</div>
+          <div>
+            Set an upper-bound of your usage per day (eg: use phone for 1 hr/day
+            at 9am)
+          </div>
+        </Col>
+        <Col
+          className={`p-2 ${styles.strategy} ${
+            strategy === "B" ? styles.selected_strat : null
+          }`}
+          md={6}
+          onClick={() => {
+            setStrategy("B");
+          }}
+        >
+          <div className="text1 bold">B. Device Reduction</div>
+          <div>Gradually decrease usage of your phone, improve day-to-day</div>
+        </Col>
+      </Row>
+      <Row className="mx-auto px-5">
+        <Col
+          className={`p-2 ${styles.strategy} ${
+            strategy === "C" ? styles.selected_strat : null
+          }`}
+          md={6}
+          onClick={() => {
+            setStrategy("C");
+          }}
+        >
+          <div className="text1 bold">C. App Restriction</div>
+          <div>Delete or sign out of your top 3 most used apps.</div>
+        </Col>
+        <Col
+          className={`p-2 ${styles.strategy} ${
+            strategy === "D" ? styles.selected_strat : null
+          }`}
+          md={6}
+          onClick={() => {
+            setStrategy("D");
+          }}
+        >
+          <div className="text1 bold">D. App Reduction</div>
+          <div>Set screen time limits on select platforms</div>
+        </Col>
+      </Row>
+      <Spacer />
+      <div className="text1 bold">Choose Filters</div>
+      <Row className="mx-auto px-5">
+        <Col md={6} className="pl-0">
+          {filter_labels.map((filter, index) => (
+            <div>
+              <div>{filter}</div>
+              <textarea
+                value={filters[index]}
+                onChange={(e) => {
+                  let temp = [...filters];
+                  temp[index] = e.target.value;
+                  setFilters(temp);
+                }}
+                style={{ width: "100%" }}
+                rows={1}
+              />
+            </div>
+          ))}
+        </Col>
+        <Col md={6} className="pl-0">
+          <div>News consumption</div>
+          <div style={{ fontStyle: "italic" }}>
+            If you want to change your media in-take...
+          </div>
+          <ul>
+            <li>Follow summary newsletters (1440, Morning Brew, BBC)</li>
+            <li>
+              Listen to daily news podcasts (NPR Up First, The Daily, etc)
+            </li>
+          </ul>
         </Col>
       </Row>
       <Spacer />

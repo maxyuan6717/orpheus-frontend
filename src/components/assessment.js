@@ -54,6 +54,10 @@ const Assessment = ({ info }) => {
   const [filter_news, setFilterNews] = useState(
     res["filter_news"] ? res["filter_news"] : ""
   );
+  const [commit, setCommit] = useState(res["commit"] ? res["commit"] : "");
+  const [signature, setSignature] = useState(
+    res["signature"] ? res["signature"] : ""
+  );
 
   const dev_questions = [
     "Cellular device",
@@ -101,6 +105,8 @@ const Assessment = ({ info }) => {
       strategy,
       filters,
       filter_news,
+      commit,
+      signature,
     };
     setSaved(-1);
     await saveUser(info._id, temp);
@@ -506,6 +512,64 @@ const Assessment = ({ info }) => {
             </li>
           </ul>
         </Col>
+      </Row>
+      <Spacer />
+      <div className="header">Pledge</div>
+      <div className="m-4">
+        <div className="text1 bold">A quick note:</div>
+        <Spacer />
+        <ol>
+          <li>
+            If you're not ready today, that does not mean anything about whether
+            you might eventually be able to do this. People are sometimes forced
+            into change but often will simply find themselves ready. The
+            important thing is that you have learned something about yourself.
+          </li>
+          <li>
+            If you do want to start, but are worried you can't make it all the
+            way through - that is okay. In fact, the act of simply starting is a
+            positive indicator that you will eventually making the changes you
+            are looking for. Do what you can and seek out others if at all
+            possible, to do it together.
+          </li>
+          <li>
+            Now, if you are still good to go, gear up! There is work to do...
+          </li>
+        </ol>
+      </div>
+      <Spacer />
+      <div className="text1 bold">
+        Write down where you are at. Do you want to try and can you commit? (Why
+        or why not?)
+      </div>
+      <textarea
+        style={{ width: "100%" }}
+        value={commit}
+        onChange={(e) => {
+          setCommit(e.target.value);
+        }}
+      />
+      <Spacer />
+      <div className="text-center text1 bold">Take the pledge</div>
+      <div className="text1" style={{ fontStyle: "italic" }}>
+        I have the desire to better understand myself, to recognize the benefits
+        and harms of technology, and to improve my relationship with these
+        technology devices.
+      </div>
+
+      <Spacer />
+      <Row className="mx-auto justify-content-center">
+        <div className="text1 mr-2" style={{ fontStyle: "italic" }}>
+          Signature
+        </div>
+        <textarea
+          style={{ width: "50%" }}
+          rows={1}
+          value={signature}
+          onChange={(e) => {
+            setSignature(e.target.value);
+          }}
+        />
       </Row>
       <Spacer />
       <Row className="mx-auto justify-content-center">

@@ -4,7 +4,6 @@ import { addBeta } from "../util/api";
 import { Row } from "react-bootstrap";
 import styled from "styled-components";
 import Input from "../components/input";
-import Spacer from "../components/spacer";
 
 const StyledMessage = styled.div`
   font-family: "Quicksand", sans-serif;
@@ -55,8 +54,7 @@ const Register = () => {
           <div className="subheader text-center">
             Enter your email to be the first in line to test Orpheus Pledge!
           </div>
-          <Spacer />
-          <div className="mx-auto">
+          <div className="mx-auto my-5">
             <Input
               type="email"
               placeholder="Email"
@@ -64,13 +62,13 @@ const Register = () => {
               onChange={(e) => {
                 setEmail(e.target.value);
               }}
-              borderColor="black"
+              borderColor="#424242"
               textColor="black"
               onKeyDown={handleKeyDown}
             />
           </div>
         </div>
-        <Row className="mx-auto mt-5 justify-content-center">
+        <Row className="mx-auto justify-content-center">
           <Button
             type="link"
             height="3rem"

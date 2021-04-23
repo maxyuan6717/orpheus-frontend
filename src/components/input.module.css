@@ -9,6 +9,10 @@
   color: white; */
 }
 
+.container::placeholder {
+  color: #bfbfbf;
+}
+
 .container:active,
 .container:focus {
   outline: none;

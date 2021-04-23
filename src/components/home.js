@@ -78,7 +78,7 @@ const Home = () => {
           <div className="mx-2 mb-2">
             <Input
               borderColor="white"
-              color="white"
+              textColor="white"
               value={email}
               onChange={(e) => {
                 if (e.target.value && e.target.value.length > 0) {

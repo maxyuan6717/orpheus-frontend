@@ -6,22 +6,9 @@ const addUser = async (email) => {
   return user;
 };
 
-const getUser = async (id) => {
-  let user = await axios.post(`${Base}/user/get`, { userId: id });
-  return user;
-};
-
-const saveUser = async (id, responses) => {
-  let saved = await axios.post(`${Base}/user/save`, {
-    userId: id,
-    responses: responses,
-  });
-  return saved;
-};
-
-const registerUser = async (id, name, password1, password2) => {
+const registerUser = async (email, name, password1, password2) => {
   let user = await axios.post(`${Base}/user/register`, {
-    userId: id,
+    email,
     name,
     password1,
     password2,
@@ -29,9 +16,4 @@ const registerUser = async (id, name, password1, password2) => {
   return user;
 };
 
-const loginUser = async (email, password) => {
-  let user = await axios.post(`${Base}/user/login`, { email, password });
-  return user;
-};
-
-export { addUser, getUser, saveUser, registerUser, loginUser };
+export { addUser, registerUser };

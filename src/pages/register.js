@@ -6,7 +6,7 @@ import { registerUser } from "../util/api";
 import { useParams, useHistory } from "react-router-dom";
 
 const Register = () => {
-  const { id } = useParams();
+  const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
@@ -31,9 +31,9 @@ const Register = () => {
     } else {
       let res;
       try {
-        res = await registerUser(id, name, password1, password2);
+        res = await registerUser(email, name, password1, password2);
         if (res.data && res.data.success) {
-          history.push(`/${id}/`);
+          // history.push(`/`);
         }
       } catch (error) {
         setErr(error.response.data.err);
@@ -48,6 +48,17 @@ const Register = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <div className="header">Create Account</div>
+        <div>
+          <div className="subheader">Email</div>
+          <input
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
         <div>
           <div className="subheader">First Name</div>
           <input

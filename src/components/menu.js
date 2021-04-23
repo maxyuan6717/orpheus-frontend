@@ -26,7 +26,7 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-const NavMenu = ({ user }) => {
+const NavMenu = () => {
   const [open, setOpen] = useState(false);
 
   const handleStateChange = (state) => {
@@ -69,9 +69,9 @@ const NavMenu = ({ user }) => {
         onClick={() => {
           setOpen(false);
         }}
-        to={`/${user ? user : "login"}`}
+        to="/register"
       >
-        Dashboard
+        Register
       </StyledNavLink>
     </Menu>
   );

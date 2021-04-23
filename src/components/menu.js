@@ -65,13 +65,21 @@ const NavMenu = () => {
       >
         Team
       </StyledNavLink>
-      <StyledNavLink
+      {/* <StyledNavLink
         onClick={() => {
           setOpen(false);
         }}
         to="/register"
       >
         Register
+      </StyledNavLink> */}
+      <StyledNavLink
+        onClick={() => {
+          setOpen(false);
+        }}
+        to="/interested"
+      >
+        Beta Sign-Up
       </StyledNavLink>
     </Menu>
   );

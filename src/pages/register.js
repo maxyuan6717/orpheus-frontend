@@ -1,9 +1,6 @@
 import { useState } from "react";
-import styles from "./register.module.css";
-import styled from "styled-components";
 import Button from "../components/button";
 import { registerUser } from "../util/api";
-import { useParams, useHistory } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -11,9 +8,13 @@ const Register = () => {
   const [password1, setPassword1] = useState("");
   const [password2, setPassword2] = useState("");
   const [err, setErr] = useState("");
-  const history = useHistory();
   const handleSubmit = async () => {
-    if (name.length === 0 || password1.length === 0 || password2.length === 0) {
+    if (
+      email.length === 0 ||
+      name.length === 0 ||
+      password1.length === 0 ||
+      password2.length === 0
+    ) {
       setErr("Please fill in all fields");
       setTimeout(() => {
         setErr("");
@@ -45,8 +46,8 @@ const Register = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
+    <div className="container">
+      <div className="content">
         <div className="header">Create Account</div>
         <div>
           <div className="subheader">Email</div>

@@ -4,12 +4,14 @@ import TeamPage from "./pages/team";
 import StoryPage from "./pages/story";
 import FAQPage from "./pages/faq";
 import Register from "./pages/register";
+import Interested from "./pages/interested";
 import NavMenu from "./components/menu";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store";
 import "./common/typography.css";
+import "./common/structure.css";
 
 function App() {
   const MyRoute = ({ children, ...otherProps }) => {
@@ -38,6 +40,9 @@ function App() {
           </MyRoute>
           <MyRoute exact path="/register">
             <Register />
+          </MyRoute>
+          <MyRoute exact path="/interested">
+            <Interested />
           </MyRoute>
           <MyRoute path="/">
             <Landing />

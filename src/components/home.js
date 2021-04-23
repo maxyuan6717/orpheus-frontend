@@ -5,7 +5,7 @@ import Logo from "../assets/logo.png";
 import Button from "./button";
 import Input from "./input";
 import Spacer from "./spacer";
-import { addUser } from "../util/api";
+import { addBeta } from "../util/api";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -18,9 +18,9 @@ const Home = () => {
       setError(true);
       return;
     } else {
-      const user = await addUser(email);
-      setMessage(user.data.message);
-      setError(user.data.error);
+      const beta = await addBeta(email);
+      setMessage(beta.data.message);
+      setError(beta.data.error);
     }
   };
 
@@ -93,7 +93,7 @@ const Home = () => {
             <Button
               type="link"
               onClick={handleSubmit}
-              text="Sign me up!"
+              text="Sign Up"
               height="3.25rem"
             />
           </div>

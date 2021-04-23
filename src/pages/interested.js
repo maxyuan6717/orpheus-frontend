@@ -3,6 +3,8 @@ import Button from "../components/button";
 import { addBeta } from "../util/api";
 import { Row } from "react-bootstrap";
 import styled from "styled-components";
+import Input from "../components/input";
+import Spacer from "../components/spacer";
 
 const StyledMessage = styled.div`
   font-family: "Quicksand", sans-serif;
@@ -41,27 +43,41 @@ const Register = () => {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleSubmit();
+  };
+
   return (
     <div className="container">
       <div className="content">
-        <div className="header">Beta Program Sign-Up</div>
-        <div>
-          <div className="subheader">Email</div>
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value);
-            }}
-          />
+        <div className="header text-center">Beta Program Sign-Up</div>
+        <div className="d-flex flex-column">
+          <div className="subheader text-center">
+            Enter your email to be the first in line to test Orpheus Pledge!
+          </div>
+          <Spacer />
+          <div className="mx-auto">
+            <Input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+              borderColor="black"
+              textColor="black"
+              onKeyDown={handleKeyDown}
+            />
+          </div>
         </div>
-        <Button
-          type="link"
-          height="3rem"
-          text="Sign Up"
-          onClick={handleSubmit}
-        />
+        <Row className="mx-auto mt-5 justify-content-center">
+          <Button
+            type="link"
+            height="3rem"
+            text="Sign Up"
+            onClick={handleSubmit}
+          />
+        </Row>
         <Row className="mx-auto justify-content-center">
           <StyledMessage style={{ color: error ? "#f75c5c" : "#67f07c" }}>
             {message}

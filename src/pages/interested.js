@@ -26,7 +26,10 @@ const Register = () => {
     } else if (!email.includes("@")) {
       setMessage("Please enter a valid email");
       setError(true);
-      return;
+      setTimeout(() => {
+        setMessage("");
+        setError(false);
+      }, 2000);
     } else {
       const beta = await addBeta(email);
       setMessage(beta.data.message);

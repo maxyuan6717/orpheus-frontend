@@ -16,7 +16,6 @@ const Home = () => {
     if (!email.includes("@")) {
       setMessage("Please enter a valid email");
       setError(true);
-      return;
     } else {
       const beta = await addBeta(email);
       setMessage(beta.data.message);

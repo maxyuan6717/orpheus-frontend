@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Button from "../components/button";
 import { registerUser } from "../util/api";
+import { AppUrl } from "../util/base";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -34,7 +35,7 @@ const Register = () => {
       try {
         res = await registerUser(email, name, password1, password2);
         if (res.data && res.data.success) {
-          // history.push(`/`);
+          window.location.href = AppUrl;
         }
       } catch (error) {
         setErr(error.response.data.err);

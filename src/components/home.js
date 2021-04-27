@@ -68,6 +68,11 @@ const Home = () => {
             addiction. This is a completely free program with thought-provoking
             readings and prompts that only require your energy and commitment.
           </div>
+          <Spacer />
+          <div style={{ fontStyle: "italic" }}>
+            We're currently in beta testing. Enter your email below to try out
+            our new, email-based program!
+          </div>
         </div>
         <Row className="mx-auto justify-content-center">
           {/* <Button
@@ -87,7 +92,7 @@ const Home = () => {
                 setEmail(e.target.value);
               }}
               onKeyDown={handleKeyDown}
-              placeholder="What's your email?"
+              placeholder="Enter Email"
             />
           </div>
           <div className="mx-2 mb-2">

@@ -8,8 +8,6 @@ import Interested from "./pages/interested";
 import NavMenu from "./components/menu";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { Provider } from "react-redux";
-import store from "./store";
 import "./common/typography.css";
 import "./common/structure.css";
 
@@ -25,31 +23,29 @@ function App() {
   };
 
   return (
-    <Provider store={store}>
-      <Router>
-        <NavMenu />
-        <Switch>
-          <MyRoute exact path="/team">
-            <TeamPage />
-          </MyRoute>
-          <MyRoute exact path="/story">
-            <StoryPage />
-          </MyRoute>
-          <MyRoute exact path="/faq">
-            <FAQPage />
-          </MyRoute>
-          <MyRoute exact path="/register">
-            <Register />
-          </MyRoute>
-          <MyRoute exact path="/interested">
-            <Interested />
-          </MyRoute>
-          <MyRoute path="/">
-            <Landing />
-          </MyRoute>
-        </Switch>
-      </Router>
-    </Provider>
+    <Router>
+      <NavMenu />
+      <Switch>
+        <MyRoute exact path="/team">
+          <TeamPage />
+        </MyRoute>
+        <MyRoute exact path="/story">
+          <StoryPage />
+        </MyRoute>
+        <MyRoute exact path="/faq">
+          <FAQPage />
+        </MyRoute>
+        <MyRoute exact path="/register">
+          <Register />
+        </MyRoute>
+        <MyRoute exact path="/interested">
+          <Interested />
+        </MyRoute>
+        <MyRoute path="/">
+          <Landing />
+        </MyRoute>
+      </Switch>
+    </Router>
   );
 }
 

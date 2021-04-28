@@ -6,6 +6,7 @@ import Button from "./button";
 import Input from "./input";
 import Spacer from "./spacer";
 import { addBeta } from "../util/api";
+import { AppUrl } from "../util/base";
 
 const Home = () => {
   const [email, setEmail] = useState("");
@@ -70,8 +71,8 @@ const Home = () => {
           </div>
           <Spacer />
           <div style={{ fontStyle: "italic" }}>
-            We're currently in beta testing. Enter your email below to try out
-            our new, email-based program!
+            We're currently in beta testing. Click the link below to try out our
+            new, email-based program!
           </div>
         </div>
         <Row className="mx-auto justify-content-center">
@@ -80,7 +81,7 @@ const Home = () => {
             type="link"
             href="https://drive.google.com/file/d/1yWb8L8Kdaw65xLjSKMBV39XzdJF7SR-d/view?usp=sharing"
           /> */}
-          <div className="mx-2 mb-2">
+          {/* <div className="mx-2 mb-2">
             <Input
               borderColor="white"
               textColor="white"
@@ -94,13 +95,15 @@ const Home = () => {
               onKeyDown={handleKeyDown}
               placeholder="Enter Email"
             />
-          </div>
+          </div> */}
           <div className="mx-2 mb-2">
             <Button
               type="link"
-              onClick={handleSubmit}
-              text="Sign Up"
+              // onClick={handleSubmit}
+              href={`${AppUrl}/register`}
+              text="Register"
               height="3.25rem"
+              width="16rem"
             />
           </div>
         </Row>

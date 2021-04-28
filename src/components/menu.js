@@ -73,14 +73,14 @@ const NavMenu = () => {
       >
         Register
       </StyledNavLink> */}
-      <StyledNavLink
+      {/* <StyledNavLink
         onClick={() => {
           setOpen(false);
         }}
         to="/interested"
       >
         Beta Sign-Up
-      </StyledNavLink>
+      </StyledNavLink> */}
     </Menu>
   );
 };

@@ -101,9 +101,11 @@ const Home = () => {
               type="link"
               // onClick={handleSubmit}
               href={`${AppUrl}/register`}
-              text="Register"
-              height="3.25rem"
-              width="16rem"
+              text="Start"
+              height="6rem"
+              width="20rem"
+              fontSize="2em"
+              borderRadius="5rem"
             />
           </div>
         </Row>

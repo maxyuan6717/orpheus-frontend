@@ -9,17 +9,16 @@ const Description = () => {
       <div className={styles.content}>
         <Row className={`mx-auto ${styles.text}`}>
           <div>
-            The Pledge has 3 levels of disconnection the reader can engage in -
-            complete, moderate or light reduction of device usage. We provide
-            daily reading based on topics related to technology addiction,
-            behavior change, and social media's effects on politics.
+            The Pledge has different strategies of disconnection you can engage
+            in - reduction or restriction of specific app or device usage. We
+            provide daily reading based on topics related to technology
+            addiction, behavior change, and social media's effects on politics.
           </div>
           <Spacer />
           <div>
-            For example, people motivated by the upcoming election can choose a
-            guide that includes additional materials for people to redeploy any
-            excess time and bandwidth gained from the program to political
-            activities. All materials are free of charge.
+            Engage with these materials to redeploy any excess time and
+            bandwidth gained from the program to activities more meaningful to
+            you. All materials are free of charge.
           </div>
         </Row>
         <Row className="mx-auto justify-content-center">

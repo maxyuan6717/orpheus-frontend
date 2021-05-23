@@ -21,3 +21,37 @@
   padding: 5.25rem 3rem;
   color: white;
 }
+
+.col_title {
+  font-family: Quicksand, sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.graph_col {
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.graph_container {
+  height: 50vh;
+}
+
+.graph_text {
+  color: black;
+  font-weight: 500;
+  font-family: Quicksand, sans-serif;
+}
+
+.retake {
+  font-family: Quicksand, sans-serif;
+  font-size: 20px;
+  color: var(--primary-light);
+}
+
+.retake:hover {
+  cursor: pointer;
+  color: var(--primary);
+}

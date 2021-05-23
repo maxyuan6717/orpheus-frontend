@@ -1,6 +1,6 @@
 .container {
-  background-color: #d8ffd6;
-  color: #196e73;
+  background-color: var(--primary-light);
+  color: var(--secondary);
   display: flex;
   text-transform: uppercase;
   font-family: "Quicksand", sans-serif;

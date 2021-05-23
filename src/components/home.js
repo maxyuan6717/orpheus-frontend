@@ -7,25 +7,15 @@ import Input from "./input";
 import Spacer from "./spacer";
 import { addBeta } from "../util/api";
 import { AppUrl } from "../util/base";
+import ReactGA from "react-ga";
 
 const Home = () => {
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState();
-  const [error, setError] = useState(false);
-
-  const handleSubmit = async () => {
-    if (!email.includes("@")) {
-      setMessage("Please enter a valid email");
-      setError(true);
-    } else {
-      const beta = await addBeta(email);
-      setMessage(beta.data.message);
-      setError(beta.data.error);
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") handleSubmit();
+  const handleRegisterSubmit = () => {
+    ReactGA.event({
+      category: "Landing",
+      action: "Click Register Button",
+    });
+    window.location.href = `${AppUrl}/register`;
   };
 
   return (
@@ -99,22 +89,14 @@ const Home = () => {
           <div className="mx-2 mb-2">
             <Button
               type="link"
-              // onClick={handleSubmit}
-              href={`${AppUrl}/register`}
+              onClick={handleRegisterSubmit}
+              // href={`${AppUrl}/register`}
               text="Start"
               height="6rem"
               width="20rem"
               fontSize="2em"
               borderRadius="5rem"
             />
-          </div>
-        </Row>
-        <Row className="mx-auto justify-content-center">
-          <div
-            className={styles.message}
-            style={{ color: error ? "#f75c5c" : "#67f07c" }}
-          >
-            {message}
           </div>
         </Row>
       </div>

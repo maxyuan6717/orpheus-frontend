@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { slide as Menu } from "react-burger-menu";
 import { AppUrl } from "../util/base";
 
-const StyledNavLink = styled(NavLink)`
+const StyledLink = styled.div`
   color: var(--primary);
   font-family: "Quicksand", sans-serif;
   font-weight: 500;
@@ -15,6 +15,7 @@ const StyledNavLink = styled(NavLink)`
   transition: background-color 0.3s;
 
   &:hover {
+    cursor: pointer;
     color: var(--primary);
     text-decoration: none;
     background-color: rgb(75, 75, 75);
@@ -42,62 +43,70 @@ const NavMenu = () => {
       isOpen={open}
       onStateChange={handleStateChange}
     >
-      <StyledNavLink
-        onClick={() => {
-          setOpen(false);
-        }}
-        to="/"
-      >
-        Home
-      </StyledNavLink>
-      <StyledNavLink
-        onClick={() => {
-          setOpen(false);
-        }}
-        to="/story"
-      >
-        Our Story
-      </StyledNavLink>
-      <StyledNavLink
-        onClick={() => {
-          setOpen(false);
-        }}
-        to="/team"
-      >
-        Team
-      </StyledNavLink>
-      <StyledNavLink
-        onClick={() => {
-          setOpen(false);
-        }}
-        to="/survey"
-      >
-        Phone Usage Quiz
-      </StyledNavLink>
-      <StyledNavLink
+      <NavLink to="/" style={{ textDecoration: "none" }}>
+        <StyledLink
+          onClick={() => {
+            setOpen(false);
+          }}
+        >
+          Home
+        </StyledLink>
+      </NavLink>
+      <NavLink to="/story" style={{ textDecoration: "none" }}>
+        <StyledLink
+          onClick={() => {
+            setOpen(false);
+          }}
+          to="/story"
+        >
+          Our Story
+        </StyledLink>
+      </NavLink>
+      <NavLink to="/team" style={{ textDecoration: "none" }}>
+        <StyledLink
+          onClick={() => {
+            setOpen(false);
+          }}
+          to="/team"
+        >
+          Team
+        </StyledLink>
+      </NavLink>
+      <NavLink to="/survey" style={{ textDecoration: "none" }}>
+        <StyledLink
+          onClick={() => {
+            setOpen(false);
+          }}
+          to="/survey"
+        >
+          Phone Usage Quiz
+        </StyledLink>
+      </NavLink>
+      <StyledLink
         onClick={() => {
           window.location.href = `${AppUrl}/`;
         }}
         to="/"
       >
         My Dashboard
-      </StyledNavLink>
-      {/* <StyledNavLink
+      </StyledLink>
+
+      {/* <StyledLink
         onClick={() => {
           setOpen(false);
         }}
         to="/register"
       >
         Register
-      </StyledNavLink> */}
-      {/* <StyledNavLink
+      </StyledLink> */}
+      {/* <StyledLink
         onClick={() => {
           setOpen(false);
         }}
         to="/interested"
       >
         Beta Sign-Up
-      </StyledNavLink> */}
+      </StyledLink> */}
     </Menu>
   );
 };

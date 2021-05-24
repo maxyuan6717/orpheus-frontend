@@ -4,6 +4,7 @@ import burger_icon from "../assets/burger.svg";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { slide as Menu } from "react-burger-menu";
+import { AppUrl } from "../util/base";
 
 const StyledNavLink = styled(NavLink)`
   color: var(--primary);
@@ -64,6 +65,22 @@ const NavMenu = () => {
         to="/team"
       >
         Team
+      </StyledNavLink>
+      <StyledNavLink
+        onClick={() => {
+          setOpen(false);
+        }}
+        to="/survey"
+      >
+        Phone Usage Quiz
+      </StyledNavLink>
+      <StyledNavLink
+        onClick={() => {
+          window.location.href = `${AppUrl}/`;
+        }}
+        to="/"
+      >
+        My Dashboard
       </StyledNavLink>
       {/* <StyledNavLink
         onClick={() => {

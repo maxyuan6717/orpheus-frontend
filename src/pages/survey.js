@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "./survey.module.css";
 import Button from "../components/button";
 import { StyledInput } from "../common/styledcomponents";
-import { ResponsiveLine } from "@nivo/line";
 import SurveyGraph from "../components/surveygraph";
 import { Row, Col } from "react-bootstrap";
 import { AppUrl } from "../util/base";
@@ -110,6 +109,18 @@ const Survey = () => {
                 disabled={!screentime || !pickups}
               />
             </div>
+            <div className={styles.small_text + " mt-3"}>
+              <small>
+                *Actual usage checking:
+                <br />
+                iPhone users: Settings > Screen Time > See All Activity > Record
+                “Daily Average”
+                <br />
+                (Most) Android users: Settings > Battery > Tap the 3-dot menu >
+                Battery usage > 3-dot menu > Show full device usage (Varies for
+                different models)
+              </small>
+            </div>
           </div>
         )}
         {show && (
@@ -191,6 +202,13 @@ const Survey = () => {
               }}
             >
               ← Retake
+            </div>
+            <div className={styles.small_text + " mt-3"}>
+              <small>
+                *We calculated these probability distributions using our own
+                data and approximations. Subject to change as we get higher
+                quality data.
+              </small>
             </div>
           </div>
         )}

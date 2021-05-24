@@ -6,31 +6,13 @@ import { ResponsiveLine } from "@nivo/line";
 import SurveyGraph from "../components/surveygraph";
 import { Row, Col } from "react-bootstrap";
 import { AppUrl } from "../util/base";
-
-const refsLayer = (props) => {
-  const height = 1;
-  return props.inputs.map((val, index) =>
-    val ? (
-      <g key={index}>
-        <rect
-          y={props.yScale(height)}
-          x={props.xScale(val) - 1}
-          width={2}
-          height={props.yScale(0) - props.yScale(height)}
-          fill="rgba(255,0,0,.5)"
-        />
-      </g>
-    ) : null
-  );
-};
+import { addStat } from "../util/api";
+import ReactGA from "react-ga";
 
 const Survey = () => {
   const [screentime, setScreentime] = useState();
   const [pickups, setPickups] = useState();
   const [show, setShow] = useState(false);
-
-  // const mu = 3,
-  //   beta = 0.8;
 
   const z = (x, mu, beta) => {
     return (x - mu) / beta;
@@ -49,7 +31,6 @@ const Survey = () => {
   for (let i = 0; i <= 200; i += 1) {
     pickup_data.push({
       x: i,
-      // y: gumbel_pdf(i, 3, 0.8),
       y:
         0.33 * gumbel_pdf(i, 80, 30) +
         0.33 * gumbel_pdf(i, 63, 15) +
@@ -118,7 +99,12 @@ const Survey = () => {
                 height="4rem"
                 width="18rem"
                 text="Get my Results"
-                onClick={() => {
+                onClick={async () => {
+                  ReactGA.event({
+                    category: "Survey",
+                    action: "Take Survey",
+                  });
+                  await addStat(screentime, pickups);
                   setShow(true);
                 }}
                 disabled={!screentime || !pickups}
@@ -185,13 +171,19 @@ const Survey = () => {
               <Button
                 type="link"
                 href={`${AppUrl}/register`}
+                onClick={() => {
+                  ReactGA.event({
+                    category: "Survey",
+                    action: "Click Register Button",
+                  });
+                }}
                 height="4rem"
                 width="18rem"
                 text="Take the Pledge"
               />
             </div>
             <div
-              className={styles.retake + " mt-2"}
+              className={styles.retake + " mt-4"}
               onClick={() => {
                 setShow(false);
                 setPickups(null);

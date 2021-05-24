@@ -60,10 +60,10 @@ const Home = () => {
             readings and prompts that only require your energy and commitment.
           </div>
           <Spacer />
-          <div style={{ fontStyle: "italic" }}>
+          {/* <div style={{ fontStyle: "italic" }}>
             We're currently in beta testing. Click the link below to try out our
             new, email-based program!
-          </div>
+          </div> */}
         </div>
         <Row className="mx-auto justify-content-center">
           {/* <Button

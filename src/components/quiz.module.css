@@ -1,0 +1,21 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-image: url("../assets/quiz_bg.png");
+  background-position: 40% 20%, center;
+  background-repeat: repeat, repeat;
+  background-size: contain;
+  background-attachment: fixed;
+}
+
+.content {
+  padding: 5.125rem 3rem;
+  max-width: 100%;
+}
+
+@media (max-width: 720px) {
+  .content {
+    padding: 2.625rem 1.5rem;
+  }
+}

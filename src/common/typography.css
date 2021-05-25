@@ -21,6 +21,13 @@
   letter-spacing: 0.05rem;
 }
 
+.normalheader {
+  font-family: "Quicksand", sans-serif;
+  font-weight: 300;
+  font-size: 22px;
+  letter-spacing: 0.05rem;
+}
+
 .text1 {
   font-size: 20px;
 }

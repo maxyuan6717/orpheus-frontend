@@ -104,7 +104,7 @@ const Survey = () => {
           <div className="fade-in">
             <div className="mt-5 mb-4">
               <div className="subheader mb-3">
-                1. What is your average screentime? (in minutes)
+                1. What is your daily average screentime? (in minutes)
               </div>
               <div style={{ marginLeft: "20px" }} className="d-flex">
                 <StyledInput

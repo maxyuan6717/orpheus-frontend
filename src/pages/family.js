@@ -199,6 +199,7 @@ const FamilySurvey = () => {
                   <span className="my-auto">
                     <FaRegTimesCircle
                       style={{ display: "block", cursor: "pointer" }}
+                      size={25}
                     />
                   </span>
                 </Col>

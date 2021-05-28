@@ -39,3 +39,20 @@
 .italic {
   font-style: italic;
 }
+
+@media (max-width: 720px) {
+  .header {
+    font-size: 30px;
+    line-height: 35px;
+  }
+  .header2 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+  .subheader {
+    font-size: 18px;
+  }
+  .normalheader {
+    font-size: 16px;
+  }
+}

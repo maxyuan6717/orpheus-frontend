@@ -22,7 +22,7 @@ const Quiz = () => {
             to="/survey"
             text="Take the Quiz"
             height="6rem"
-            width="20rem"
+            width="18rem"
             fontSize="1.6em"
             borderRadius="5rem"
           />

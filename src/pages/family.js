@@ -108,7 +108,8 @@ const FamilySurvey = () => {
         {!show && (
           <div className="fade-in">
             <div className="subheader mb-3">
-              Input your daily averages for screentime (in minutes) and pickups.
+              Input your family's daily averages for screentime (in minutes) and
+              pickups.
               <OverlayTrigger
                 placement="bottom"
                 delay={{ show: 250, hide: 400 }}
@@ -123,17 +124,21 @@ const FamilySurvey = () => {
                 </span>
               </OverlayTrigger>
             </div>
-            <Row className="mx-auto normalheader">
-              <Col md={5} className="pl-0">
+            {/* <Row className="mx-auto normalheader">
+              <Col md={5} className="px-2">
                 Name
               </Col>
-              <Col md={3}>Screentime</Col>
-              <Col md={3}>Pickups</Col>
-              <Col md={1} className="pr-0" />
-            </Row>
+              <Col md={3} className="px-2">
+                Screentime
+              </Col>
+              <Col md={3} className="px-2">
+                Pickups
+              </Col>
+              <Col md={1} className="px-2" />
+            </Row> */}
             {responses.map((res, index) => (
               <Row className="mx-auto my-2">
-                <Col md={5} className="pl-0">
+                <Col md={5} className="px-2 my-1">
                   <StyledInput
                     type="text"
                     placeholder="Name"
@@ -146,7 +151,7 @@ const FamilySurvey = () => {
                     }}
                   />
                 </Col>
-                <Col md={3}>
+                <Col md={3} className="px-2 my-1">
                   <StyledInput
                     type="text"
                     placeholder="Screentime"
@@ -165,7 +170,7 @@ const FamilySurvey = () => {
                     }}
                   />
                 </Col>
-                <Col md={3}>
+                <Col md={3} className="px-2 my-1">
                   <StyledInput
                     type="text"
                     placeholder="Pickups"
@@ -194,12 +199,15 @@ const FamilySurvey = () => {
                   style={{
                     pointerEvents: responses.length === 1 ? "none" : null,
                   }}
-                  className="d-flex justify-content-left pr-0"
+                  className="d-flex justify-content-left px-2 my-1"
                 >
+                  <span className="d-block d-md-none normalheader">
+                    Remove Entry&nbsp;
+                  </span>
                   <span className="my-auto">
                     <FaRegTimesCircle
-                      style={{ display: "block", cursor: "pointer" }}
-                      size={25}
+                      style={{ display: "inline-block", cursor: "pointer" }}
+                      size={20}
                     />
                   </span>
                 </Col>
@@ -211,7 +219,7 @@ const FamilySurvey = () => {
                 temp.push({ name: "", screentime: "", pickups: "" });
                 setResponses(temp);
               }}
-              className="my-2 normalheader d-flex"
+              className="my-2 normalheader d-flex px-2"
             >
               <span className={styles.add_btn}>
                 Add Person{" "}

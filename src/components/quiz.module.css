@@ -15,6 +15,9 @@
 }
 
 @media (max-width: 720px) {
+  .container {
+    background-size: cover;
+  }
   .content {
     padding: 2.625rem 1.5rem;
   }

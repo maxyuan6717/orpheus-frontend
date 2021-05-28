@@ -1,5 +1,17 @@
 import { ResponsiveLine } from "@nivo/line";
 
+const colors = [
+  "#e41a1c",
+  "#377eb8",
+  "#4daf4a",
+  "#984ea3",
+  "#ff7f00",
+  "#ffff33",
+  "#a65628",
+  "#f781bf",
+  "#99999",
+];
+
 const refsLayer = (props) => {
   return props.inputs.map((val, index) =>
     val ? (
@@ -9,7 +21,7 @@ const refsLayer = (props) => {
           x={props.xScale(val) - 1}
           width={2}
           height={props.yScale(0) + 10}
-          fill="rgba(255,0,0,.5)"
+          fill={colors[index]}
         />
       </g>
     ) : null
@@ -20,19 +32,17 @@ const SurveyGraph = ({ data, value, variable, barHeight }) => {
   return (
     <ResponsiveLine
       colors={{ scheme: "set1" }}
-      inputs={[value]}
+      inputs={value.map((val) => val.val)}
       barHeight={barHeight}
-      data={[
-        {
-          id: "you",
-          color: "black",
-          data: data.map((val, index) => ({
-            x: val.x,
-            y: val.x <= value ? val.y : null,
+      data={value
+        .map((val) => ({
+          id: `${val.name} - ${val.cdf}%`,
+          data: data.map((val2, index) => ({
+            x: val2.x,
+            y: val2.x <= val.val ? val2.y : null,
           })),
-        },
-        { id: "gumbel", data: data },
-      ]}
+        }))
+        .concat([{ id: "Population", data: data }])}
       margin={{ top: 5, right: 20, bottom: 50, left: 20 }}
       xScale={{ type: "linear" }}
       yScale={{
@@ -81,6 +91,36 @@ const SurveyGraph = ({ data, value, variable, barHeight }) => {
         "points",
         "crosshair",
       ]}
+      legends={
+        value[0].name
+          ? [
+              {
+                anchor: "top-right",
+                direction: "column",
+                justify: false,
+                translateX: 0,
+                translateY: 0,
+                itemsSpacing: 0,
+                itemDirection: "left-to-right",
+                itemWidth: 100,
+                itemHeight: 20,
+                itemOpacity: 0.75,
+                symbolSize: 12,
+                symbolShape: "circle",
+                symbolBorderColor: "rgba(0, 0, 0, .5)",
+                effects: [
+                  {
+                    on: "hover",
+                    style: {
+                      itemBackground: "rgba(0, 0, 0, .03)",
+                      itemOpacity: 1,
+                    },
+                  },
+                ],
+              },
+            ]
+          : []
+      }
       sliceTooltip={({ slice }) => {
         return (
           <div

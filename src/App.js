@@ -5,6 +5,7 @@ import StoryPage from "./pages/story";
 import FAQPage from "./pages/faq";
 import Register from "./pages/register";
 import Interested from "./pages/interested";
+import FamilySurvey from "./pages/family";
 import Survey from "./pages/survey";
 import NavMenu from "./components/menu";
 
@@ -50,6 +51,9 @@ function App() {
         </MyRoute>
         <MyRoute exact path="/survey">
           <Survey />
+        </MyRoute>
+        <MyRoute exact path="/family">
+          <FamilySurvey />
         </MyRoute>
         <MyRoute exact path="/register">
           <Register />

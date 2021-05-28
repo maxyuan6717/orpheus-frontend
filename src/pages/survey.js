@@ -9,6 +9,7 @@ import { addStat } from "../util/api";
 import ReactGA from "react-ga";
 import { AiOutlineQuestionCircle } from "react-icons/ai";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const StyledTooltip = styled(Tooltip)`
   .tooltip-inner {
@@ -102,6 +103,15 @@ const Survey = () => {
         </div>
         {!show && (
           <div className="fade-in">
+            <div
+              className="mt-2"
+              style={{ fontFamily: "Quicksand, sans-serif", fontSize: "18px" }}
+            >
+              Want to take our tech usage quiz as a family?{" "}
+              <Link to="/family" className={styles.family_link}>
+                Try our family quiz
+              </Link>
+            </div>
             <div className="mt-5 mb-4">
               <div className="subheader mb-3">
                 1. What is your daily average screentime? (in minutes)
@@ -184,7 +194,7 @@ const Survey = () => {
                   await addStat(screentime, pickups);
                   setShow(true);
                 }}
-                disabled={!screentime || !pickups}
+                disabled={screentime === "" || pickups === ""}
               />
             </div>
           </div>
@@ -204,7 +214,7 @@ const Survey = () => {
                   <div className={styles.graph_container + " mt-3"}>
                     <SurveyGraph
                       data={screentime_data}
-                      value={screentime}
+                      value={[{ val: screentime }]}
                       variable="Minutes"
                       barHeight={0.32}
                     />
@@ -223,7 +233,7 @@ const Survey = () => {
                   <div className={styles.graph_container + " mt-3"}>
                     <SurveyGraph
                       data={pickup_data}
-                      value={pickups}
+                      value={[{ val: pickups }]}
                       variable="Pickups"
                       barHeight={0.023}
                     />

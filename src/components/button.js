@@ -11,7 +11,6 @@ const Button = ({
   type,
   ...otherProps
 }) => {
-  console.log(disabled);
   const styleProps = {
     width,
     height,

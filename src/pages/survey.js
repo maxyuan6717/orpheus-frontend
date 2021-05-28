@@ -20,8 +20,8 @@ const StyledTooltip = styled(Tooltip)`
 `;
 
 const Survey = () => {
-  const [screentime, setScreentime] = useState();
-  const [pickups, setPickups] = useState();
+  const [screentime, setScreentime] = useState("");
+  const [pickups, setPickups] = useState("");
   const [show, setShow] = useState(false);
 
   const z = (x, mu, beta) => {

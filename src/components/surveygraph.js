@@ -82,7 +82,6 @@ const SurveyGraph = ({ data, value, variable, barHeight }) => {
         "crosshair",
       ]}
       sliceTooltip={({ slice }) => {
-        console.log(slice.points);
         return (
           <div
             style={{

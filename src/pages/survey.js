@@ -109,7 +109,7 @@ const Survey = () => {
             >
               Want to take our tech usage quiz as a family?{" "}
               <Link to="/family" className={styles.family_link}>
-                Try our family quiz
+                Try our family quiz →
               </Link>
             </div>
             <div className="mt-5 mb-4">

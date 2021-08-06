@@ -43,14 +43,15 @@ const Home = () => {
         <div className={styles.text}>
           <div style={{ fontWeight: 400 }}>
             Orpheus Pledge is a mindfulness technology detox program to help you
-            reimagine your relationship with devices and social media. As tides
-            are rising against big tech with cases brought against Facebook and
+            reimagine your relationship with devices and social media.{" "}
+            {/* As tides are rising against big tech with cases brought against Facebook and
             Google on misinformation, threats against democracy, and ad tech
             monopolization—we are finally gaining awareness of the insidious
             harms of these platform models. Policy remedies take time, but
-            change in our individual lives can start today. Our hope is that
-            once you are freed of the distraction of technology, you can live in
-            more present, meaningful, and happy ways.
+            change in our individual lives can start today. */}
+            Our hope is that once you are freed of the distraction of
+            technology, you can live in more present, meaningful, and happy
+            ways.
           </div>
           <Spacer />
           <div>

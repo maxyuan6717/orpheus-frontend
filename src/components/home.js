@@ -18,6 +18,14 @@ const Home = () => {
     window.location.href = `${AppUrl}/register`;
   };
 
+  const handleLoginSubmit = () => {
+    ReactGA.event({
+      category: "Landing",
+      action: "Click Login Button",
+    });
+    window.location.href = `${AppUrl}/login`;
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -92,6 +100,17 @@ const Home = () => {
               type="link"
               onClick={handleRegisterSubmit}
               text="Register"
+              height="6rem"
+              width="18rem"
+              fontSize="1.6em"
+              borderRadius="5rem"
+            />
+          </div>
+          <div className="mx-2 mb-2">
+            <Button
+              type="link"
+              onClick={handleLoginSubmit}
+              text="Login"
               height="6rem"
               width="18rem"
               fontSize="1.6em"
